@@ -1,4 +1,7 @@
 
+<h1>
+    {{minhaPropsDefora}}
+</h1>
 
  <p>Meu primeiro componente angularjs {{ nome }}</p>
  <button (click)="handleClick($event.target)"  [attr.aria-label]="idButton">{{myButton}}</button>
@@ -14,3 +17,12 @@
     </label>
     <input type="submit" value="Enviar">
 </form>
+
+@if(deveMostrarTitulo != true) {
+    <h1>Titulo exibido por condicional</h1>
+}
+
+@for(item of listItems; track item) {
+    <p>{{item}}</p>
+}
+

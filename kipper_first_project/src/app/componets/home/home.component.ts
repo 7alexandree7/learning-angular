@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { EnviaFormularioService } from '../../services/envia-formulario.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  private enviaFormularioSerice = inject(EnviaFormularioService)
   nome = 'unfast'; 
   myButton = 'First Button'
   idButton = Math.random(); 
+  deveMostrarTitulo = false;
+  listItems = ['leite condensado', 'leite em po', 'paçoca', 'açai', 'agua']
+
+  @Input() minhaPropsDefora!: string;
+  @Output() emitindoValorName = new EventEmitter<string>();
+
 
   handleClick(event: any) {
     console.log('clicou')
@@ -18,9 +25,9 @@ export class HomeComponent {
   }
 
   handleSubmit(event: any) {
+    this.emitindoValorName.emit(this.minhaPropsDefora)
     event.preventDefault()
-    console.log('clicou')
-    console.log(event)
+    this.enviaFormularioSerice.enviaInfoPraBackEnd('enviando informação')
   }
 
 }

@@ -8,6 +8,10 @@ import { HomeComponent } from './componets/home/home.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'kipper_first_project';
+  logar(event: any) {
+    console.log('sdsd')
+  }
 }
