@@ -1,4 +1,16 @@
 
-<div>
-    <p>Meu primeiro componente angularjs</p>
-</div>
+
+ <p>Meu primeiro componente angularjs {{ nome }}</p>
+ <button (click)="handleClick($event.target)"  [attr.aria-label]="idButton">{{myButton}}</button>
+
+<form (submit)="handleSubmit($event)">
+    <label>
+        Nome:
+        <input type="text" name="nome" id="nome" required>
+    </label>
+    <label>
+        Idade:
+        <input type="number" name="idade" id="idade" required>
+    </label>
+    <input type="submit" value="Enviar">
+</form>
